@@ -44,13 +44,13 @@ def change_room():
     player_x = 100
 
 def check_input(key, value):
-    if key == pygame.K_LEFT or key == pygame.K_a:
+    if key == pygame.K_a:
         player_input["left"] = value
-    elif key == pygame.K_RIGHT or key == pygame.K_d:
+    elif key == pygame.K_d:
         player_input["right"] = value
-    elif key == pygame.K_UP or key == pygame.K_w:
+    elif key == pygame.K_w:
         player_input["up"] = value
-    elif key == pygame.K_DOWN or key == pygame.K_s:
+    elif key == pygame.K_s:
         player_input["down"] = value
 
 while True:
@@ -74,6 +74,10 @@ while True:
     room_text = TEXT_FONT.render(f'ROOM: {CURRENT_ROOM}', False, WHITE)
     WINDOW.blit(room_text, (50, 50))
 
+    #Ajustar la posicion del jugagor
+    player_x += player_velocity[0] * player_speed
+    player_y += player_velocity[1] * player_speed
+
     #Dibujar jugador
     PLAYER = pygame.draw.circle(WINDOW, PURPLE, (player_x, player_y), player_size)
 
@@ -83,10 +87,6 @@ while True:
         #Comprobar la colision puerta-jugador
         if CURRENT_ROOM and PLAYER.colliderect(door_room1):
             change_room()
-
-    #Ajustar la posicion del jugagor
-    player_x += player_velocity[0] * player_speed
-    player_y += player_velocity[1] * player_speed
 
     #Establecer los límites de la pantalla
     if player_input["left"] == True and player_x - player_speed < player_size:
