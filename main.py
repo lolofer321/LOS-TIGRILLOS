@@ -19,6 +19,7 @@ pygame.display.set_caption(WINDOW_TITLE)
 
 background = pygame.transform.scale(pygame.image.load("assets/background.png"), WINDOW_SIZE)
 
+BORDER = 100
 #fps
 FRAME_RATE = 120
 
@@ -211,7 +212,7 @@ while True:
 
 
     for b in bulletsB:
-        if b.x > WINDOW_SIZE[0] - 100 or b.x < 100 or b.y > WINDOW_SIZE[1] - 100 or b.y < 100:
+        if b.x > WINDOW_SIZE[0] - BORDER or b.x < BORDER or b.y > WINDOW_SIZE[1] - BORDER or b.y < BORDER:
             bulletsB.remove(b)
             objects.remove(b)
 
@@ -236,11 +237,11 @@ while True:
     #Establecer los límites de la pantalla
     if player_input["left"] == True and player.x - player.speed < player.width:
         player.x += player.speed
-    if player_input["right"] == True and player.x + player.speed > WINDOW_SIZE[0] - player.width - 80:
+    if player_input["right"] == True and player.x + player.speed > WINDOW_SIZE[0] - player.width - BORDER:
         player.x -= player.speed
     if player_input["up"] == True and player.y - player.speed < player.height:
         player.y += player.speed
-    if player_input["down"] == True and player.y + player.speed > WINDOW_SIZE[1] - player.height - 80:
+    if player_input["down"] == True and player.y + player.speed > WINDOW_SIZE[1] - player.height - BORDER:
         player.y -= player.speed
     
     CLOCK.tick(FRAME_RATE)
