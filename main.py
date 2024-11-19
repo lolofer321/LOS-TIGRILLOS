@@ -204,13 +204,11 @@ while True:
                 objects.remove(b)
 
     for b in bulletsB:
-        """for e in enemies:"""
         if check_collisions(player, b) and len(playerLS) != 0:
             player.take_damage(2)
             bulletsB.remove(b)
             objects.remove(b)
-            """if check_collisions(player, e) and len(playerLS) != 0:
-                player.take_damage(100)"""
+
 
     for b in bulletsB:
         if b.x > WINDOW_SIZE[0] - 100 or b.x < 100 or b.y > WINDOW_SIZE[1] - 100 or b.y < 100:
@@ -225,16 +223,25 @@ while True:
 
     textPosicion = 10
     for obj in objects:
-        txt = TEXT_FONT.render(f"{obj}", 1, WHITE)
+        """txt = TEXT_FONT.render(f"{obj}", 1, WHITE)
         WINDOW.blit(txt, (10, textPosicion))
         textPosicion += 30
 
         txt2 = TEXT_FONT.render(f"{player.health}", 1, WHITE)
         WINDOW.blit(txt2, (10, WINDOW_SIZE[1] - 40))
-        
+        """
 
         obj.update()
 
+    #Establecer los límites de la pantalla
+    if player_input["left"] == True and player.x - player.speed < player.width:
+        player.x += player.speed
+    if player_input["right"] == True and player.x + player.speed > WINDOW_SIZE[0] - player.width - 80:
+        player.x -= player.speed
+    if player_input["up"] == True and player.y - player.speed < player.height:
+        player.y += player.speed
+    if player_input["down"] == True and player.y + player.speed > WINDOW_SIZE[1] - player.height - 80:
+        player.y -= player.speed
     
     CLOCK.tick(FRAME_RATE)
     pygame.display.update()
