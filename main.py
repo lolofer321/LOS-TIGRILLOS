@@ -17,8 +17,6 @@ TEXT_FONT = pygame.font.Font("assets/font.otf", 32)
 
 #Pantalla
 WINDOW_SIZE = (1280, 720)
-BOUNDS_X = (100, 1180)
-BOUNDS_Y = (100, 620)
 WINDOW_TITLE = "Tigres vs zombies"
 WINDOW = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption(WINDOW_TITLE)
@@ -154,12 +152,19 @@ def target_posicion():
     target.y = mousePos[1] - target.height / 2
 
 def spawn_enemy():
-    x_random = random.randint(BORDER + 0, WINDOW_SIZE[0] - BORDER)
+    x_random = random.randint(BORDER, WINDOW_SIZE[0] - BORDER)
     y_random = random.randint(BORDER, WINDOW_SIZE[1] - BORDER)
     new_enemy = Enemy(x_random, y_random, 75, 75, "assets/EnemySheetTest.png", 1)
 
     objects.append(new_enemy)
     enemies.append(new_enemy)
+
+def enemy_action():
+    t = random.randint(10)
+    if t < 6:
+        enemies_move()
+    else:
+        enemies_shoot() 
 
 player_input = {"left": False, "right": False, "up": False, "down": False}
 
@@ -204,8 +209,7 @@ while True:
     enemies_shoot()
     enemies_move(player)
 
-    if CURRENT_TIME - last_time_spawn > enemy_spawn_interval:
-        print(CURRENT_TIME - last_time_spawn > enemy_spawn_interval)
+    if CURRENT_TIME - last_time_spawn > enemy_spawn_interval and len(playerLS) != 0:
         spawn_enemy()
         last_time_spawn = CURRENT_TIME
 
