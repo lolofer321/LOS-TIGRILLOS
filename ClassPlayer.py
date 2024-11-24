@@ -1,10 +1,6 @@
-from ClassEntity import Entity
+from ClassCharacter import Character
 
-class Player(Entity):
-    def __init__(self, x, y, width, height, image, speed):
-        super().__init__(x, y, width, height, image, speed)
-        self.health = 5
-        self.shootInterval = 500
-        self.lastShootTime = 0
-
-    
+class Player(Character):
+    def __init__(self, pos_x, pos_y, width, height, health, move_speed, attack_speed, direccion, controls):
+        super().__init__(pos_x, pos_y, width, height, health, move_speed, attack_speed, direccion)
+        self.controls = controls

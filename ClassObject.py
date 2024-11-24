@@ -1,10 +1,9 @@
 class Object:
-    def __init__(self, x, y, width, height, image):
-        self.x = x
-        self.y = y
+    def __init__(self, pos_x, pos_y, width, height):
+        self.pos_x = pos_x
+        self.pos_y = pos_y
         self.width = width
         self.height = height
-        self.image = image
-        self.velocity = [0, 0]
-        self.collider = [width, height]
-        self.speed = 1
+
+    def get_center(self):
+        return self.pos_x + self.width / 2, self.pos_y + self.height / 2
