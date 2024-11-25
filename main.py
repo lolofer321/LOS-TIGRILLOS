@@ -179,16 +179,16 @@ def crear_enemigos(room):
     elif room == 2:
         enemies.append(Enemy(200, 200, 75, 75, "assets/EnemySheetTest.png", 1))
         
-    elif room == 4:
-        enemies.append(Enemy(350, 250, 75, 75 ,"assets/EnemySheetTest.png",1))  # Un nuevo tipo de enemigo
+    elif room == 3:
+        enemies.append(Enemy(350, 250, 150, 150 ,"assets/EnemySheetTest.png",1))  
         enemies.append(Enemy(450, 350, 75, 75, "assets/EnemySheetTest.png",1))
-    elif room == 5:
+    elif room == 4:
         enemies.append(Enemy(250, 150, 75, 75, "assets/EnemySheetTest.png", 1))
         enemies.append(Enemy(350, 250, 75, 75, "assets/EnemySheetTest.png", 1))
         enemies.append(Enemy(450, 350, 75, 75, "assets/EnemySheetTest.png", 1))
         enemies.append(Enemy(550, 450, 75, 75, "assets/EnemySheetTest.png", 1))
         
-    # Añade más condiciones para más habitaciones y más tipos de enemigos si es necesario
+  
 
     for enemy in enemies:
         objects.append(enemy)
