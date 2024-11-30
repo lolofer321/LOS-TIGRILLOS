@@ -16,9 +16,6 @@ class Game:
 
     def move(self, entity):
 
-        entity.pos_x += entity.direccion[0] * entity.move_speed
-        entity.pos_y += entity.direccion[1] * entity.move_speed
-
         if entity.direccion[0] < 0 and entity.pos_x - entity.move_speed < 0:
             entity.pos_x += entity.move_speed
         if entity.direccion[0] > 0 and entity.pos_x + entity.move_speed > self.map.width - entity.width:
@@ -28,6 +25,8 @@ class Game:
         if entity.direccion[1] > 0 and entity.pos_y + entity.move_speed > self.map.height - entity.height:
             entity.pos_y -= entity.move_speed
 
+        entity.pos_x += entity.direccion[0] * entity.move_speed
+        entity.pos_y += entity.direccion[1] * entity.move_speed
     def shoot(self, source, target):
         source_center = source.get_center()
         objetive_center = target.get_center()
@@ -37,7 +36,7 @@ class Game:
         magnitude = (bullet_velocity[0] ** 2 + bullet_velocity[1] ** 2) ** 0.5
         
         #Los objetos deben ser creados en el render
-        bullet = Bullet(source_center[0], source_center[1], 16, 16, 10, [0, 0], 2, pygame.time.get_ticks())
+        bullet = Bullet(source_center[0], source_center[1], 16, 16, 15, [0, 0], 1, pygame.time.get_ticks())
         self.bullets.append(bullet)
 
         bullet.direccion[0] = bullet_velocity[0] / magnitude
@@ -92,7 +91,7 @@ class Game:
             self.player.remove(target)
         elif target in self.enemies:
             self.enemies.remove(target)
-        else:
+        elif target in self.bullets:
             self.bullets.remove(target)
         
     def take_damage(self, target, bullet):
@@ -102,28 +101,50 @@ class Game:
 
     def render(self, window):
         for i in self.player:
-            if i.direccion == [1, 0] or i.direccion == [0.7071067811865475, 0.7071067811865475] or i.direccion == [0.7071067811865475, -0.7071067811865475]:
+            for j in range(i.health):
+                window.blit(self.map.assets["life"], (40 + j*45, 40))
+            if i.direccion[0] > 0:
                 window.blit(self.map.assets["playerMR"][self.current_frame], (i.pos_x, i.pos_y))
                 if pygame.time.get_ticks() - self.last_frame >= self.frame_rate:
                     self.current_frame += 1
                     self.last_frame = pygame.time.get_ticks()
                 if self.current_frame >= len(self.map.assets["playerMR"]):
                     self.current_frame = 0
-            elif i.direccion == [-1, 0] or i.direccion == [-0.7071067811865475, 0.7071067811865475] or i.direccion == [-0.7071067811865475, -0.7071067811865475]:
+            elif i.direccion[0] < 0:
                 window.blit(self.map.assets["playerML"][self.current_frame], (i.pos_x, i.pos_y))
                 if pygame.time.get_ticks() - self.last_frame >= self.frame_rate:
                     self.current_frame += 1
                     self.last_frame = pygame.time.get_ticks()
                 if self.current_frame >= len(self.map.assets["playerML"]):
                     self.current_frame = 0
-            else: window.blit(self.map.assets["playerML"][self.current_frame], (i.pos_x, i.pos_y))
+            else: window.blit(self.map.assets["playerMR"][1], (i.pos_x, i.pos_y))
         for i in self.enemies:
             if i.type == "type1":
-                window.blit(self.map.assets["enemy_type1"], (i.pos_x, i.pos_y))
+                if i.direccion[0] > 0:
+                    window.blit(self.map.assets["enemy_type1MR"][self.current_frame], (i.pos_x, i.pos_y))
+                    if pygame.time.get_ticks() - self.last_frame >= self.frame_rate:
+                        self.current_frame += 1
+                        self.last_frame = pygame.time.get_ticks()
+                    if self.current_frame >= len(self.map.assets["enemy_type1MR"]):
+                        self.current_frame = 0
+                elif i.direccion[0] < 0:
+                    window.blit(self.map.assets["enemy_type1ML"][self.current_frame], (i.pos_x, i.pos_y))
+                    if pygame.time.get_ticks() - self.last_frame >= self.frame_rate:
+                        self.current_frame += 1
+                        self.last_frame = pygame.time.get_ticks()
+                    if self.current_frame >= len(self.map.assets["enemy_type1ML"]):
+                        self.current_frame = 0
+                else: window.blit(self.map.assets["enemy_type1MR"][self.current_frame], (i.pos_x, i.pos_y))
+                for j in range(i.health):
+                        """window.blit(self.map.assets["life"], (i.pos_x+45*j, i.pos_y))"""
+                        pygame.draw.rect(window, (255,0,0), ((i.pos_x+i.width/2)-i.health/2*10+10*j,i.pos_y-10,10,10))
             elif i.type == "type2":
                 window.blit(self.map.assets["enemy_type2"], (i.pos_x, i.pos_y))
-            elif i.type == "door":
-                window.blit(self.map.assets["door"], (i.pos_x, i.pos_y))
+            elif i.type == "type3":
+                window.blit(self.map.assets["enemy_type3"], (i.pos_x, i.pos_y))
+            
+        self.bullet_atack()
+        self.bullet_kill()
         for i in self.bullets:
             window.blit(self.map.assets["bullet_type1"], (i.pos_x, i.pos_y))
         
