@@ -1,4 +1,5 @@
 import pygame
+import constants
 from ClassBullet import Bullet
 pygame.init()
 TEXT_FONT = pygame.font.Font("assets/font.otf", 32)
@@ -119,7 +120,7 @@ class Game:
                     self.current_frame = 0
             else: window.blit(self.map.assets["playerMR"][1], (i.pos_x, i.pos_y))
         for i in self.enemies:
-            if i.type == "type1":
+            if i.type == constants.ENEMY_TYPE1:
                 if i.direccion[0] > 0:
                     window.blit(self.map.assets["enemy_type1MR"][self.current_frame], (i.pos_x, i.pos_y))
                     if pygame.time.get_ticks() - self.last_frame >= self.frame_rate:
@@ -138,7 +139,7 @@ class Game:
                 for j in range(i.health):
                         """window.blit(self.map.assets["life"], (i.pos_x+45*j, i.pos_y))"""
                         pygame.draw.rect(window, (255,0,0), ((i.pos_x+i.width/2)-i.health/2*10+10*j,i.pos_y-10,10,10))
-            elif i.type == "type2":
+            elif i.type == constants.ENEMY_TYPE2:
                 window.blit(self.map.assets["enemy_type2"], (i.pos_x, i.pos_y))
             elif i.type == "type3":
                 window.blit(self.map.assets["enemy_type3"], (i.pos_x, i.pos_y))

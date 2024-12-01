@@ -1,21 +1,23 @@
 import pygame
+import constants
 
 class map:
-    def __init__(self, window, width, height, level, elements, assets):
+    def __init__(self, window, width, height, level, elements, assets, next_level):
         self.window = window
         self.width = width
         self.height = height
         self.level = level
         self.elements = elements
         self.assets = assets
+        self.next_level = next_level
 
     def render(self):
         if self.level in ["level1","level2","level3","level4"]:
             self.window.blit(self.assets["background1"], (0, 0))
             for i in self.elements:
-                if i.type == "type1":
+                if i.type == constants.OBJECT_TYPE1:
                     self.window.blit(self.assets["obstacle_type1"], (i.pos_x, i.pos_y))
-                elif i.type == "type2":
+                elif i.type == constants.OBJECT_TYPE2:
                     self.window.blit(self.assets["obstacle_type2"], (i.pos_x, i.pos_y))
         elif self.level in ["level5","level6","level7","level8"]:
             self.window.blit(self.assets["background2"], (0, 0))

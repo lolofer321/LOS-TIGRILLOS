@@ -5,17 +5,19 @@ class Utils:
         self.height = height
         self.assets = {}
 
+    #Cargar imagenes
     def load_assets(self):
         self.assets = {
             "background1":pygame.transform.scale(pygame.image.load("assets/background1.png"), (self.width, self.height)),
             "background2":pygame.transform.scale(pygame.image.load("assets/background2.png"), (self.width, self.height)),
             "background3":pygame.transform.scale(pygame.image.load("assets/background3.png"), (self.width, self.height)),
-            "obstacle_type1":pygame.transform.scale(pygame.image.load("assets/rock1.png"), (88, 100)),
+            "obstacle_type1":pygame.transform.scale(pygame.image.load("assets/tree1.png"), (88, 100)),
             "obstacle_type2":pygame.transform.scale(pygame.image.load("assets/fence1.png"), (68, 68)),
-            "obstacle_type3":pygame.transform.scale(pygame.image.load("assets/rock2a.png"), (80, 80)),
-            "obstacle_type4":pygame.transform.scale(pygame.image.load("assets/rock2a.png"), (80, 80)),
-            "obstacle_type5":pygame.transform.scale(pygame.image.load("assets/rock2a.png"), (80, 80)),
-            "obstacle_type6":pygame.transform.scale(pygame.image.load("assets/rock2a.png"), (80, 80)),
+            "obstacle_type3":pygame.transform.scale(pygame.image.load("assets/stone1.png"), (80, 80)),
+            "obstacle_type4":pygame.transform.scale(pygame.image.load("assets/skulls1.png"), (80, 80)),
+            "obstacle_type5":pygame.transform.scale(pygame.image.load("assets/rock1.png"), (80, 80)),
+            "obstacle_type6":pygame.transform.scale(pygame.image.load("assets/car1.png"), (80, 80)),
+            "obstacle_type6":pygame.transform.scale(pygame.image.load("assets/car2.png"), (80, 80)),
             "door1":None,
             "playerMR":[pygame.transform.scale(pygame.image.load("assets/player/playerMR1.png"), (88, 88)),
                       pygame.transform.scale(pygame.image.load("assets/player/playerMR2.png"), (88, 88)),
