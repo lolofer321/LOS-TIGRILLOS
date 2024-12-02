@@ -55,21 +55,45 @@ class Game:
     def map_collisions(self):
         for j in self.player + self.enemies:
             for i in self.map.elements:
-                if self.check_collisions(i, j):
+                if self.check_collisions(j, i):                    
                     if j.direccion[0] < 0 and j.pos_x + j.direccion[0] * j.move_speed > i.pos_x + i.width / 2:
-                        j.pos_x -= j.direccion[0] * j.move_speed
+                        j.pos_x = i.pos_x + j.width
                     elif j.direccion[0] > 0 and j.pos_x + j.direccion[0] * j.move_speed < i.pos_x - i.width / 2:
-                        j.pos_x -= j.direccion[0] * j.move_speed
-                    if j.direccion[1] < 0 and j.pos_y + j.direccion[1] * j.move_speed > i.pos_y + i.height / 2:
-                        j.pos_y -= j.direccion[1] * j.move_speed
+                        j.pos_x = i.pos_x - j.width
+                    elif j.direccion[1] < 0 and j.pos_y + j.direccion[1] * j.move_speed > i.pos_y + i.height / 2:
+                        j.pos_y = i.pos_y + j.height
                     elif j.direccion[1] > 0 and j.pos_y + j.direccion[1] * j.move_speed < i.pos_y - i.height / 2:
-                        j.pos_y -= j.direccion[1] * j.move_speed
+                        j.pos_y = i.pos_y - j.height
 
-    def bullet_atack(self):
+    def entitys_collisions(self):
+        for j in self.player + self.enemies:
+            for i in self.player + self.enemies:
+                """if i == j:
+                    continue"""
+                if self.check_collisions(i, j):
+                    if j.direccion[0] < 0 and j.pos_x + j.direccion[0] * j.move_speed > i.pos_x + i.width / 2 and i.direccion[0] > 0 and i.pos_x + i.direccion[0] * i.move_speed < j.pos_x - j.width / 2:
+                        j.pos_x, i.pos_x = i.pos_x + j.width, j.pos_x - i.width
+                        """j.pos_x = i.pos_x + j.width
+                        i.pos_x = j.pos_x - i.width"""
+                    elif j.direccion[0] > 0 and j.pos_x + j.direccion[0] * j.move_speed < i.pos_x - i.width / 2 and i.direccion[0] < 0 and i.pos_x + i.direccion[0] * i.move_speed > j.pos_x + j.width / 2:
+                        j.pos_x, i.pos_x = i.pos_x - j.width, j.pos_x + i.width
+                        """j.pos_x = i.pos_x - j.width
+                        i.pos_x = j.pos_x + i.width"""
+                    elif j.direccion[1] < 0 and j.pos_y + j.direccion[1] * j.move_speed > i.pos_y + i.height / 2 and i.direccion[1] > 0 and i.pos_y + i.direccion[1] * i.move_speed < j.pos_y - j.height / 2:
+                        j.pos_y, i.pos_y = i.pos_y + j.height, j.pos_y - i.height
+                        """j.pos_y = i.pos_y + j.height
+                        i.pos_y = j.pos_y - i.height"""
+                    elif j.direccion[1] > 0 and j.pos_y + j.direccion[1] * j.move_speed < i.pos_y - i.height / 2 and i.direccion[1] < 0 and i.pos_y + i.direccion[1] * i.move_speed > j.pos_y + j.height / 2:
+                        j.pos_y, i.pos_y = i.pos_y - j.height, j.pos_y + i.height
+                        """j.pos_y = i.pos_y - j.height
+                        i.pos_y = j.pos_y + i.height"""
+
+    def bullet_attack(self):
         for b in self.bullets:
             for e in self.enemies + self.player:
                 if self.check_collisions(b, e) and pygame.time.get_ticks() - b.create_time > 100:
                     self.take_damage(e, b)
+                    self.destroy(b)
 
     def bullet_kill(self):
         for b in self.bullets:
@@ -83,9 +107,6 @@ class Game:
             for i in self.map.elements:
                 if self.check_collisions(b, i):
                     self.destroy(b)
-            for i in self.enemies + self.player:
-                    if self.check_collisions(b, i) and pygame.time.get_ticks() - b.create_time > 100:
-                        self.destroy(b)
     
     def destroy(self, target):
         if target in self.player:
@@ -105,47 +126,47 @@ class Game:
             for j in range(i.health):
                 window.blit(self.map.assets["life"], (40 + j*45, 40))
             if i.direccion[0] > 0:
-                window.blit(self.map.assets["playerMR"][self.current_frame], (i.pos_x, i.pos_y))
+                window.blit(self.map.assets[i.type]["0"][self.current_frame], (i.pos_x, i.pos_y))
                 if pygame.time.get_ticks() - self.last_frame >= self.frame_rate:
                     self.current_frame += 1
                     self.last_frame = pygame.time.get_ticks()
-                if self.current_frame >= len(self.map.assets["playerMR"]):
+                if self.current_frame >= len(self.map.assets[i.type]["0"]):
                     self.current_frame = 0
             elif i.direccion[0] < 0:
-                window.blit(self.map.assets["playerML"][self.current_frame], (i.pos_x, i.pos_y))
+                window.blit(self.map.assets[i.type]["1"][self.current_frame], (i.pos_x, i.pos_y))
                 if pygame.time.get_ticks() - self.last_frame >= self.frame_rate:
                     self.current_frame += 1
                     self.last_frame = pygame.time.get_ticks()
-                if self.current_frame >= len(self.map.assets["playerML"]):
+                if self.current_frame >= len(self.map.assets[i.type]["1"]):
                     self.current_frame = 0
-            else: window.blit(self.map.assets["playerMR"][1], (i.pos_x, i.pos_y))
+            else: window.blit(self.map.assets[i.type]["0"][self.current_frame], (i.pos_x, i.pos_y))
         for i in self.enemies:
-            if i.type == constants.ENEMY_TYPE1:
-                if i.direccion[0] > 0:
-                    window.blit(self.map.assets["enemy_type1MR"][self.current_frame], (i.pos_x, i.pos_y))
-                    if pygame.time.get_ticks() - self.last_frame >= self.frame_rate:
-                        self.current_frame += 1
-                        self.last_frame = pygame.time.get_ticks()
-                    if self.current_frame >= len(self.map.assets["enemy_type1MR"]):
-                        self.current_frame = 0
-                elif i.direccion[0] < 0:
-                    window.blit(self.map.assets["enemy_type1ML"][self.current_frame], (i.pos_x, i.pos_y))
-                    if pygame.time.get_ticks() - self.last_frame >= self.frame_rate:
-                        self.current_frame += 1
-                        self.last_frame = pygame.time.get_ticks()
-                    if self.current_frame >= len(self.map.assets["enemy_type1ML"]):
-                        self.current_frame = 0
-                else: window.blit(self.map.assets["enemy_type1MR"][self.current_frame], (i.pos_x, i.pos_y))
-                for j in range(i.health):
-                        """window.blit(self.map.assets["life"], (i.pos_x+45*j, i.pos_y))"""
-                        pygame.draw.rect(window, (255,0,0), ((i.pos_x+i.width/2)-i.health/2*10+10*j,i.pos_y-10,10,10))
-            elif i.type == constants.ENEMY_TYPE2:
-                window.blit(self.map.assets["enemy_type2"], (i.pos_x, i.pos_y))
-            elif i.type == "type3":
-                window.blit(self.map.assets["enemy_type3"], (i.pos_x, i.pos_y))
-            
-        self.bullet_atack()
+            if i.type == "door":
+                continue
+            if i.direccion[0] > 0:
+                window.blit(self.map.assets[i.type]["0"][self.current_frame], (i.pos_x, i.pos_y))
+                if pygame.time.get_ticks() - self.last_frame >= self.frame_rate:
+                    self.current_frame += 1
+                    self.last_frame = pygame.time.get_ticks()
+                if self.current_frame >= len(self.map.assets[i.type]["0"]):
+                    self.current_frame = 0
+            elif i.direccion[0] < 0:
+                window.blit(self.map.assets[i.type]["1"][self.current_frame], (i.pos_x, i.pos_y))
+                if pygame.time.get_ticks() - self.last_frame >= self.frame_rate:
+                    self.current_frame += 1
+                    self.last_frame = pygame.time.get_ticks()
+                if self.current_frame >= len(self.map.assets[i.type]["1"]):
+                    self.current_frame = 0
+            else: window.blit(self.map.assets[i.type]["0"][self.current_frame], (i.pos_x, i.pos_y))
+            for j in range(i.health):
+                pygame.draw.rect(window, (255,0,0), ((i.pos_x+i.width/2)-i.health/2*10+10*j,i.pos_y-10,10,10))
+
+        if len(self.enemies) == 1:
+            txt = TEXT_FONT.render(f"PASE AL SIGUIENTE NIVEL", 1, (255, 255, 255))
+            self.map.window.blit(txt, (640, 80))            
+
         self.bullet_kill()
+        self.bullet_attack()
         for i in self.bullets:
             window.blit(self.map.assets["bullet_type1"], (i.pos_x, i.pos_y))
         

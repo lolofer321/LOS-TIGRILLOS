@@ -84,10 +84,11 @@ def play():
             game.move(i)
         if len(player) != 0:
             game.move(player[0])
-        
-        #Renderizado del juego
         game.render(WINDOW)
+        #Renderizado del juego
         game.map_collisions()
+        game.entitys_collisions()
+
         
         #Cambio de nivel
         if game.check_collisions(player[0], game.enemies[-1]) and len(game.enemies) == 1:
@@ -106,9 +107,12 @@ def main_menu():
     while True:
         MENU.blit(BACKGROUNDMENU, (0, 0))
         MENU_MOUSE_POS = pygame.mouse.get_pos()
-        PLAY_BUTTON = Button(0, 0, 1280, 720,
-                             pygame.transform.scale(pygame.image.load("assets/playbutton.png"), (1280, 720)))
+        PLAY_BUTTON = Button(WINDOW_SIZE[0]/3, WINDOW_SIZE[1]/2, 440, 64,
+                             pygame.transform.scale(pygame.image.load("assets/playbutton.png"), (440, 64)))
         PLAY_BUTTON.render(MENU)
+        EXIT_BUTTON = Button(WINDOW_SIZE[0]/3, WINDOW_SIZE[1]/2 + 128, 440, 64,
+                             pygame.transform.scale(pygame.image.load("assets/exitbutton.png"), (440, 64)))
+        EXIT_BUTTON.render(MENU)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -118,6 +122,9 @@ def main_menu():
                 if PLAY_BUTTON.check_input(MENU_MOUSE_POS):
                     game.current_level == constants.NIVEL_INICIAL
                     play()
+                elif EXIT_BUTTON.check_input(MENU_MOUSE_POS):
+                    pygame.quit()
+                    exit()
     
         pygame.display.update()
 

@@ -7,4 +7,3 @@ class Character(Object):
         self.move_speed = move_speed
         self.attack_speed = attack_speed
         self.direccion = direccion
-    
