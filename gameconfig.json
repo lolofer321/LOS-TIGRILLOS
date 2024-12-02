@@ -3,7 +3,7 @@
         {
             "name": "level1",
             "objects": [
-                {"posX": 160, "posY": 0, "alto": 88, "ancho": 112, "type": "TYPE_1"},
+                {"posX": 0, "posY": 0, "alto": 88, "ancho": 112, "type": "TYPE_1"},
                 {"posX": 160, "posY": 80, "alto": 88, "ancho": 112, "type": "TYPE_1"},
                 {"posX": 160, "posY": 160, "alto": 88, "ancho": 112, "type": "TYPE_1"},
                 {"posX": 160, "posY": 240, "alto": 88, "ancho": 112, "type": "TYPE_1"},
@@ -131,6 +131,194 @@
                 { "posX": 1180, "posY": 280, "alto": 100, "ancho": 100, "vida": 100000000, "movimiento": 0, "attackSpeed": 0, "direccion": [0, 0], "nivel": 1, "type": "door"}
             ],
             "next_level": "level5"
+        },
+        {
+            "name": "level5",
+            "objects": [
+                {"posX": 80, "posY": 160, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 160, "posY": 120, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 240, "posY": 120, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 320, "posY": 120, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 400, "posY": 120, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 80, "posY": 660, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 160, "posY": 660, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 240, "posY": 660, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 320, "posY": 660, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 400, "posY": 660, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+
+                {"posX": 540, "posY": 360, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 620, "posY": 360, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 700, "posY": 360, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 780, "posY": 360, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 540, "posY": 420, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 620, "posY": 420, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 700, "posY": 420, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 780, "posY": 420, "alto": 88, "ancho": 60, "type": "TYPE_4"}
+            ],
+            "enemies": [
+                { "posX": 900, "posY": 250, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_5"},
+                { "posX": 860, "posY": 360, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_5"},
+                { "posX": 860, "posY": 420, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_5"},
+                { "posX": 900, "posY": 570, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_5"},
+                { "posX": 1180, "posY": 280, "alto": 100, "ancho": 100, "vida": 100000000, "movimiento": 0, "attackSpeed": 0, "direccion": [0, 0], "nivel": 1, "type": "door"}
+            ],
+            "next_level": "level6"
+        },
+        {
+            "name": "level6",
+            "objects": [
+                {"posX": 160, "posY": 120, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 240, "posY": 120, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 320, "posY": 120, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 400, "posY": 120, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 160, "posY": 600, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 240, "posY": 600, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 320, "posY": 600, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 400, "posY": 600, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 640, "posY": 240, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 720, "posY": 240, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 800, "posY": 240, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 640, "posY": 480, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 720, "posY": 480, "alto": 68, "ancho": 68, "type": "TYPE_2"},
+                {"posX": 800, "posY": 480, "alto": 68, "ancho": 68, "type": "TYPE_2"},
+                {"posX": 880, "posY": 480, "alto": 68, "ancho": 68, "type": "TYPE_2"},
+                {"posX": 480, "posY": 160, "alto": 68, "ancho": 68, "type": "TYPE_2"},   
+                {"posX": 920, "posY": 360, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 1000, "posY": 360, "alto": 88, "ancho": 100, "type": "TYPE_5"}
+            ],
+            "enemies": [
+                { "posX": 640, "posY": 180, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_6"},
+                { "posX": 640, "posY": 340, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_6"},
+                { "posX": 700, "posY": 360, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_6"},
+                { "posX": 1100, "posY": 420, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_6"},
+                { "posX": 1100, "posY": 300, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_6"},
+                { "posX": 1180, "posY": 280, "alto": 100, "ancho": 100, "vida": 100000000, "movimiento": 0, "attackSpeed": 0, "direccion": [0, 0], "nivel": 1, "type": "door"}
+            ],
+            "next_level": "level7"
+        },
+        {
+            "name": "level7",
+            "objects": [
+                {"posX": 0, "posY": 80, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 80, "posY": 80, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 160, "posY": 80, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 240, "posY": 80, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 0, "posY": 620, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 80, "posY": 620, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 160, "posY": 620, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 240, "posY": 620, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 660, "posY": 0, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 660, "posY": 80, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 660, "posY": 160, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 660, "posY": 240, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 660, "posY": 480, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 660, "posY": 560, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 660, "posY": 640, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 660, "posY": 720, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 1040, "posY": 80, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 1120, "posY": 80, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 1200, "posY": 80, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 1280, "posY": 80, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 1140, "posY": 620, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 1120, "posY": 620, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 1280, "posY": 620, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 1280, "posY": 620, "alto": 88, "ancho": 100, "type": "TYPE_5"}
+            ],
+            "enemies": [
+                { "posX": 900, "posY": 360, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_7"},
+                { "posX": 1180, "posY": 280, "alto": 100, "ancho": 100, "vida": 100000000, "movimiento": 0, "attackSpeed": 0, "direccion": [0, 0], "nivel": 1, "type": "door"}
+            ],
+            "next_level": "level8"
+        },
+        {
+            "name": "level8",
+            "objects": [
+                {"posX": 380, "posY": 360, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 380, "posY": 460, "alto": 88, "ancho": 100, "type": "TYPE_5"},
+                {"posX": 620, "posY": 180, "alto": 88, "ancho": 60, "type": "TYPE_4"},
+                {"posX": 620, "posY": 540, "alto": 88, "ancho": 60, "type": "TYPE_4"}
+            ],
+            "enemies": [
+                { "posX": 800, "posY": 180, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_8"},
+                { "posX": 800, "posY": 360, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_8"},
+                { "posX": 800, "posY": 540, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_8"},
+                { "posX": 1180, "posY": 280, "alto": 100, "ancho": 100, "vida": 100000000, "movimiento": 0, "attackSpeed": 0, "direccion": [0, 0], "nivel": 1, "type": "door"}
+            ],
+            "next_level": "level9"
+        },
+        {
+
+            "name": "level9",
+            "objects": [
+                {"posX": 640, "posY": 540, "alto": 150, "ancho": 70, "type": "TYPE_6"},
+                {"posX": 320, "posY": 360, "alto": 150, "ancho": 70, "type": "TYPE_6"},
+                {"posX": 640, "posY": 180, "alto": 150, "ancho": 70, "type": "TYPE_7"},
+                {"posX": 980, "posY": 360, "alto": 150, "ancho": 70, "type": "TYPE_7"}
+            ],
+            "enemies": [
+                { "posX": 320, "posY": 540, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_9"},
+                { "posX": 980, "posY": 540, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_9"},
+                { "posX": 980, "posY": 180, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_9"},
+                { "posX": 1180, "posY": 280, "alto": 100, "ancho": 100, "vida": 100000000, "movimiento": 0, "attackSpeed": 0, "direccion": [0, 0], "nivel": 1, "type": "door"}
+            ],
+            "next_level": "level10"
+        },
+        {
+            "name": "level10",
+            "objects": [
+                {"posX": 640, "posY": 180, "alto": 150, "ancho": 70, "type": "TYPE_6"},
+                {"posX": 450, "posY": 360, "alto": 150, "ancho": 70, "type": "TYPE_7"},
+                {"posX": 990, "posY": 360, "alto": 150, "ancho": 70, "type": "TYPE_7"},
+                {"posX": 900, "posY": 180, "alto": 80, "ancho": 100, "type": "TYPE_1"},
+                {"posX": 580, "posY": 610, "alto": 80, "ancho": 100, "type": "TYPE_1"}
+            ],
+            "enemies": [
+                { "posX": 990, "posY": 180, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_10"},
+                { "posX": 1200, "posY": 360, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_10"},
+                { "posX": 640, "posY": 610, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_10"},
+                { "posX": 640, "posY": 360, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_10"},
+                { "posX": 1180, "posY": 280, "alto": 100, "ancho": 100, "vida": 100000000, "movimiento": 0, "attackSpeed": 0, "direccion": [0, 0], "nivel": 1, "type": "door"}
+            ],
+            "next_level": "level11"
+        },
+        {
+            "name": "level11",
+            "objects": [
+                {"posX": 980, "posY": 180, "alto": 80, "ancho": 100, "type": "TYPE_1"},
+                {"posX": 980, "posY": 580, "alto": 80, "ancho": 100, "type": "TYPE_1"},
+                {"posX": 640, "posY": 110, "alto": 150, "ancho": 70, "type": "TYPE_7"},
+                {"posX": 640, "posY": 180, "alto": 150, "ancho": 70, "type": "TYPE_7"},
+                {"posX": 640, "posY": 290, "alto": 150, "ancho": 70, "type": "TYPE_6"},
+                {"posX": 640, "posY": 430, "alto": 150, "ancho": 70, "type": "TYPE_6"},
+                {"posX": 640, "posY": 580, "alto": 150, "ancho": 70, "type": "TYPE_6"},
+                {"posX": 640, "posY": 650, "alto": 150, "ancho": 70, "type": "TYPE_7"}
+            ],
+            "enemies": [
+                { "posX": 980, "posY": 180, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_11"},
+                { "posX": 980, "posY": 580, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_11"},
+                { "posX": 740, "posY": 180, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_11"},
+                { "posX": 740, "posY": 540, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_11"},
+                { "posX": 1180, "posY": 280, "alto": 100, "ancho": 100, "vida": 100000000, "movimiento": 0, "attackSpeed": 0, "direccion": [0, 0], "nivel": 1, "type": "door"}
+            ],
+            "next_level": "level12"
+        },
+        {
+            "name": "level12",
+            "objects": [
+                {"posX": 640, "posY": 180, "alto": 150, "ancho": 70, "type": "TYPE_7"},
+                {"posX": 640, "posY": 360, "alto": 150, "ancho": 70, "type": "TYPE_7"},
+                {"posX": 640, "posY": 540, "alto": 150, "ancho": 70, "type": "TYPE_6"},
+                {"posX": 920, "posY": 180, "alto": 88, "ancho": 76, "type": "TYPE_3"},
+                {"posX": 920, "posY": 360, "alto": 88, "ancho": 76, "type": "TYPE_3"},
+                {"posX": 920, "posY": 540, "alto": 88, "ancho": 76, "type": "TYPE_3"}
+            ],
+            "enemies": [
+                { "posX": 1100, "posY": 180, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_12"},
+                { "posX": 1100, "posY": 360, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_12"},
+                { "posX": 1100, "posY": 540, "alto": 80, "ancho": 80, "vida": 1, "movimiento": 5, "attackSpeed": 5, "direccion": [0, 0], "nivel": 1, "type": "TYPE_12"},
+                { "posX": 1180, "posY": 280, "alto": 100, "ancho": 100, "vida": 100000000, "movimiento": 0, "attackSpeed": 0, "direccion": [0, 0], "nivel": 1, "type": "door"}
+            ],
+            "next_level": "level13"
         }
     ]
 }
