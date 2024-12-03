@@ -11,6 +11,7 @@ class map:
         self.assets = assets
         self.next_level = next_level
 
+    #Dibujar fondos y obstaculos
     def render(self):
         if self.level in ["level1","level2","level3","level4"]:
             self.window.blit(self.assets["background1"], (0, 0))
@@ -18,6 +19,9 @@ class map:
             self.window.blit(self.assets["background2"], (0, 0))
         if self.level in ["level9","level10","level11","level12"]:
             self.window.blit(self.assets["background3"], (0, 0))
+        if self.level == "level13":
+            self.window.blit(self.assets["background2"], (0, 0))
+            self.window.blit(self.assets["you_win"], (370, 180))
         for i in self.elements:
                 if i.type == constants.OBJECT_TYPE1:
                     self.window.blit(self.assets["obstacle_type1"], (i.pos_x, i.pos_y))
@@ -31,4 +35,5 @@ class map:
                     self.window.blit(self.assets["obstacle_type5"], (i.pos_x, i.pos_y))
                 elif i.type == constants.OBJECT_TYPE6:
                     self.window.blit(self.assets["obstacle_type6"], (i.pos_x, i.pos_y))
-        
+                elif i.type == constants.OBJECT_TYPE7:
+                    self.window.blit(self.assets["obstacle_type7"], (i.pos_x, i.pos_y))

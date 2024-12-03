@@ -12,13 +12,19 @@ class Utils:
             "background1":pygame.transform.scale(pygame.image.load("assets/background1.png"), (self.width, self.height)),
             "background2":pygame.transform.scale(pygame.image.load("assets/background2.png"), (self.width, self.height)),
             "background3":pygame.transform.scale(pygame.image.load("assets/background3.png"), (self.width, self.height)),
+            "background3":pygame.transform.scale(pygame.image.load("assets/background3.png"), (self.width, self.height)),
+            "backgroundmenu":pygame.transform.scale(pygame.image.load("assets/backgroundmenu.png"), (self.width, self.height)),
+            "game_over":pygame.transform.scale(pygame.image.load("assets/game_over.png"), (801, 445)),
+            "you_win":pygame.transform.scale(pygame.image.load("assets/you_win.png"), (540, 360)),
             "obstacle_type1":pygame.transform.scale(pygame.image.load("assets/tree1.png"), (80, 100)),
             "obstacle_type2":pygame.transform.scale(pygame.image.load("assets/fence1.png"), (68, 68)),
             "obstacle_type3":pygame.transform.scale(pygame.image.load("assets/stone1.png"), (88, 76)),
             "obstacle_type4":pygame.transform.scale(pygame.image.load("assets/skulls1.png"), (88, 60)),
             "obstacle_type5":pygame.transform.scale(pygame.image.load("assets/rock1.png"), (88, 100)),
             "obstacle_type6":pygame.transform.scale(pygame.image.load("assets/car1.png"), (156, 72)),
-            "obstacle_type6":pygame.transform.scale(pygame.image.load("assets/car2.png"), (152, 72)),
+            "obstacle_type7":pygame.transform.scale(pygame.image.load("assets/car2.png"), (152, 72)),
+            "arrow":pygame.transform.scale(pygame.image.load("assets/arrow.png"), (80, 80)),
+            "coin":pygame.transform.scale(pygame.image.load("assets/coin.png"), (40, 40)),
             "door1":None,
             "PLAYER":{
             "0":[pygame.transform.scale(pygame.image.load("assets/player/playerMR1.png"), (88, 88)),
@@ -175,4 +181,11 @@ class Utils:
             "bullet_type1":pygame.transform.scale(pygame.image.load("assets/bullet.png"), (16, 16)),
             "font":pygame.font.Font("assets/font.otf", 32),
             "cursor":pygame.transform.scale(pygame.image.load("assets/cursor.png"), (40, 40)),
-            "life":pygame.transform.scale(pygame.image.load("assets/life.png"), (40, 40))}
+            "life":pygame.transform.scale(pygame.image.load("assets/life.png"), (40, 40)),
+            "gun1":[pygame.transform.scale(pygame.image.load("assets/g1R.png"), (36, 24)),
+                   pygame.transform.scale(pygame.image.load("assets/g1L.png"), (36, 24)),],
+            "gun2":[pygame.transform.scale(pygame.image.load("assets/g2R.png"), (64, 24)),
+                    pygame.transform.scale(pygame.image.load("assets/g2L.png"), (64, 24)),],
+            "gun3":[pygame.transform.scale(pygame.image.load("assets/g3R.png"), (64, 24)),
+                    pygame.transform.scale(pygame.image.load("assets/g3L.png"), (64, 24))]
+            }

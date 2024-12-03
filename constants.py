@@ -1,3 +1,5 @@
+import pygame
+pygame.init()
 NIVEL_INICIAL = "level1"
 ENEMY_TYPE1 = "TYPE_1"
 ENEMY_TYPE2 = "TYPE_2"
@@ -17,3 +19,6 @@ OBJECT_TYPE3 = "TYPE_3"
 OBJECT_TYPE4 = "TYPE_4"
 OBJECT_TYPE5 = "TYPE_5"
 OBJECT_TYPE6 = "TYPE_6"
+OBJECT_TYPE7 = "TYPE_7"
+TEXT_FONT = pygame.font.Font("assets/font.otf", 32)
+TEXT_FONT2 = pygame.font.Font("assets/font.otf", 100)

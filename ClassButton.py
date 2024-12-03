@@ -5,9 +5,11 @@ class Button(Object):
         super().__init__(pos_x, pos_y, width, height)
         self.image = image
 
+    #Dibujar
     def render(self, screen):
         screen.blit(self.image, (self.pos_x, self.pos_y))
 
+    #Comprobar si fue presionado
     def check_input(self, position):
         if position[0] in range(int((self.pos_x)//1),int((self.pos_x+self.width)//1)) and position[1] in range(int(self.pos_y//1), int((self.pos_y+self.height)//1)):
             return True
